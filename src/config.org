@@ -1,0 +1,31 @@
+#include <arduino.h>
+
+// Define program constants
+const char* myKey = "makerkey"; // your IFTTT maker key here
+const char* ssid = "ssidname"; // your router ssid here
+const char* password = "wlanpasswd"; // your router password here
+
+/*
+ * This is the mac address list of your decvices
+ * put them in the same order as the device names
+ */
+#define NUMBER_OF_DEVICES 2 // Put here how many MAC addresses you have
+uint8_t devicemac[NUMBER_OF_DEVICES][ESPPL_MAC_LEN] = {
+   {0x99, 0x00, 0x00, 0x00, 0x00, 0x00} //Phone1
+   ,{0x00, 0x00, 0x00, 0x00, 0x00, 0x00} //Phone2
+
+  };
+/*
+ This is your device name list
+ put them in the same order as the MAC addresses
+
+ you can also modify deviceStates
+ devicename_sevicestates is used as the IFTTT webhook
+
+ */
+String devicename[NUMBER_OF_DEVICES] = {
+   "Phone1"
+   ,"Phone2"
+  };
+
+String deviceStates[2] = {"home", "away"};
