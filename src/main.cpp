@@ -5,8 +5,8 @@
 #include "config.h"
 #define SERIAL_DEBUG // Uncomment this to dissable serial debugging
 
-
 /*
+
 
 This code monitors MAC addresses found with ESP8266 on wemos d1 board
 and then send the status to IFTTT MAKER - if there is a change.
