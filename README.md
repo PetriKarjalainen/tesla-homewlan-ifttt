@@ -15,4 +15,6 @@ Thanks for the idea to:
   https://github.com/RicardoOliveira/FriendDetector
   https://github.com/mylob/ESP-To-IFTTT
 
-Remember to set Platform.io for right board
+This package is for Atom editor with platformIO extension to have Arduino framework compatibility. The code may work also with normal Arduino.
+
+Remember to set Platform.io for right board before compiling.

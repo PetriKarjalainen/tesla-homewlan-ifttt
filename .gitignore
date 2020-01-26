@@ -3,3 +3,7 @@
 .gcc-flags.json
 config.h
 platformio.ini
+.travis.yml
+test
+lib
+include
