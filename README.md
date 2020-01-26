@@ -17,9 +17,11 @@ Thanks for the idea to:
 
 This package is for Atom editor with platformIO extension to have Arduino framework compatibility. The code may work also with normal Arduino.
 
-Remember to set Platform.io for right board before compiling.
+Remember to set Platform.io for right board before compiling. To do this use platformIO Home page to create a new project. Then delete src/main.cpp and .gitignore files.
 
-to set up git in plaform io first using Atom initialize the directory then navitage using command promp to that directory and do the following commands in that directory. After these commands restart atom and youre good to go.
+to set up git in plaform io first using Atom initialize the directory by rightclick on top of your main directory, select git/initiatlize.
+
+Then navitage using command promp to that directory and do the following commands in that directory. After these commands restart atom and youre good to go.
 
 git pull origin master
 From https://github.com/PetriKarjalainen/tesla-homewlan-ifttt
