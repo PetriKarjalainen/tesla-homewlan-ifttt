@@ -1,6 +1,9 @@
 #include <Arduino.h>
-#include <ESP8266WiFi.h>
-
+#if defined(ESP8266)
+#include <ESP8266WiFi.h>  //ESP8266 Core WiFi Library
+#else
+#include <WiFi.h>      //ESP32 Core WiFi Library
+#endif
 #ifndef DataToMaker_h
 class DataToMaker
 {
