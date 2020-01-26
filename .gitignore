@@ -4,3 +4,6 @@
 config.h
 platformio.ini
 .travis.yml
+test/*
+lib/*
+include/*
