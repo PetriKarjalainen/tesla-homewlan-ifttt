@@ -1,5 +1,6 @@
-#include <ESP8266WiFi.h>
-#include "./esppl_struct.h"
+//#include <ESP8266WiFi.h>
+#include <WiFi.h>
+#include "esppl_struct.h"
 
 extern "C" {
   #include "user_interface.h"
