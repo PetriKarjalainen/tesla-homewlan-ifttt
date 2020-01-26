@@ -21,9 +21,11 @@ Remember to set Platform.io for right board before compiling. To do this use pla
 
 to set up git in plaform io first using Atom initialize the directory by rightclick on top of your main directory, select git/initiatlize.
 
-Then navitage using command promp to that directory and do the following commands in that directory. After these commands restart atom and youre good to go.
+Then navitage using command promp to that directory and do the following commands in that directory.
 
-git pull origin master
+git remote add origin
 From https://github.com/PetriKarjalainen/tesla-homewlan-ifttt
 
 git pull origin master
+
+After these commands restart atom and youre good to go.
