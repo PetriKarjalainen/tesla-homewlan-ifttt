@@ -1,7 +1,6 @@
 #include <arduino.h>
 #include "./esppl_functions.h"
-// #include <ESP8266WiFi.h>
-#include <WiFi.h>
+#include <ESP8266WiFi.h>
 #include "DataToMaker.h"
 #include "config.h"
 #define SERIAL_DEBUG // Uncomment this to dissable serial debugging
@@ -27,7 +26,7 @@ Change  history:
 
 */
 
-#define COUNTDOWN 1200*7 // seconds * 7 = /150ms rounded up to reliably detect non active device
+#define COUNTDOWN 1800*7 // seconds * 7 = /150ms rounded up to reliably detect non active device
 #define INITIALIZE 60*7 // seconds * 7 to initialize to reliably detect nearby active devices
 int maccntdwn[NUMBER_OF_DEVICES];
 bool mactomonitor[NUMBER_OF_DEVICES];
@@ -35,6 +34,7 @@ DataToMaker event(myKey, "ESP");
 bool pvsValues[NUMBER_OF_DEVICES];
 bool connectedToWiFI = false;
 bool firstrun;
+bool prevval=false;
 
 String boolstring( _Bool b ) { return b ? "true" : "false"; }
 
@@ -154,11 +154,12 @@ int decodedeviceStates(bool val)
   }
 }
 
-
 bool DetectChange()
 {
   bool val;
-  for (int i = 0 ; i < NUMBER_OF_DEVICES ; i++)
+  int i;
+
+  for (i = 0 ; i < NUMBER_OF_DEVICES ; i++)
   {
     if ((val = mactomonitor[i]) != pvsValues[i])
     {
@@ -173,7 +174,20 @@ bool DetectChange()
       return true;
     }
   }
-  return false;
+  // If no changes detected in the devices then lets compute value for "someone"
+  for (i = 0 ; i < NUMBER_OF_DEVICES ; i++) val = val || mactomonitor[i];
+  //i=i+1;
+  if (val != prevval)
+    {
+        event.setValue(String(devicename[i])+"_"+String(deviceStates[decodedeviceStates(val)]));
+        prevval=val;
+        debug("Changes found: (or");
+        debug(") ");
+        debug( (String(devicename[i]) + "_" + String(deviceStates[decodedeviceStates(val)])) );
+        debug(" ---> ");
+        return true;
+    }
+  else return false;
 }
 
 void send_to_ifttt() {

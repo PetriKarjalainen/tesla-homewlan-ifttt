@@ -23,9 +23,10 @@ uint8_t devicemac[NUMBER_OF_DEVICES][ESPPL_MAC_LEN] = {
  devicename_sevicestates is used as the IFTTT webhook
 
  */
-String devicename[NUMBER_OF_DEVICES] = {
+String devicename[NUMBER_OF_DEVICES+1] = {
    "Phone1"
    ,"Phone2"
+   ,"someone" // this device contains OR function of all devices: device1 || device2 .. || deviceN and must be last on the list
   };
 
 String deviceStates[2] = {"home", "away"};
