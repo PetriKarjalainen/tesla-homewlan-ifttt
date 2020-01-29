@@ -26,7 +26,7 @@ uint8_t devicemac[NUMBER_OF_DEVICES][ESPPL_MAC_LEN] = {
 String devicename[NUMBER_OF_DEVICES+1] = {
    "Phone1"
    ,"Phone2"
-   ,"someone" // this device contains OR function of all devices: device1 || device2 .. || deviceN and must be last on the list
+   ,"someone" // this device must be included and last on the list. Icontains OR function of all devices: device1 || device2 .. || deviceN and must be last on the list
   };
 
 String deviceStates[2] = {"home", "away"};
